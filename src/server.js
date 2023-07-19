@@ -21,8 +21,9 @@ app.use(myConnection(mysql, {
     user: 'root',
     password: 'contraseña',
     port: 3306,
-    databse: 'MadridSonando'
+    database: 'MadridSonando'
 }, 'single'));
+app.use(express.urlencoded({extended: false})) // Añade el campo body a las req
 
 // Routes
 app.use('/', customerRoutes);

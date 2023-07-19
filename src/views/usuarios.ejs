@@ -7,36 +7,42 @@
 
         
         <div class="bs-component mt-5">
-            <form>
+            <form action="/add", method="post">
               <fieldset>
                 <legend>Registro</legend>
 
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="form-label mt-4">Nombre Completo</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" data-cip-id="exampleInputEmail1">
+                    <input type="text" name="nombre" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce tu Nombre" data-cip-id="exampleInputEmail1">
                     
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleInputEmail1" class="form-label mt-4">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" data-cip-id="exampleInputEmail1">
+                    <label for="exampleInputEmail1" class="form-label mt-4">Telefono</label>
+                    <input type="text" name="telefono" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce tu Telefono" data-cip-id="exampleInputEmail1">
                     
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="form-label mt-4">Direccion</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" data-cip-id="exampleInputEmail1">
+                    <input type="text" name="direccion" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce tu dirección" data-cip-id="exampleInputEmail1">
                     
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="form-label mt-4">Perfil</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" data-cip-id="exampleInputEmail1">
+                    <input type="text" name="perfil" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce tu Perfil" data-cip-id="exampleInputEmail1">
                     
                 </div>
+              </fieldset>
+              <button type="sumbit" class="btn btn-primary mt-5">Registrate!</button>
+            </form>
+        </div>
                 
         
     </div>
 </div>
+
+
 
 <%- include('partials/_footer') %>
