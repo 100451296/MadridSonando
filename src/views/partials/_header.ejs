@@ -42,6 +42,7 @@
               </li>
               
             </ul>
+              <a class="btn btn-primary my-2 my-sm-0" id="navLogin" href="/inicia-sesion">Inciar sesión</a>
               <a class="btn btn-secondary my-2 my-sm-0" id="navRegister" href="/registrarse">Registrate</a>
           </div>
         </div>
@@ -59,10 +60,12 @@
         }
       }
 
-      function hideRegister(id, linkPath) {
-        var link = document.getElementById(id);
-        if (path === linkPath) {
-          link.style.display = "none";
+      function hideLoginRegister() {
+        let register = document.getElementById('navLogin');
+        let login =  document.getElementById('navRegister');
+        if (path === '/registrarse' || path === '/inicia-sesion') {
+          register.style.display = "none";
+          login.style.display = "none";
         }
       }
 
@@ -71,7 +74,7 @@
       setActiveLink('navLinkAudiovisual', '/audiovisual');
       setActiveLink('navLinkMarketing', '/marketing');
       setActiveLink('navLinkModa', '/moda');
-      hideRegister('navRegister', '/registrarse')
+      hideLoginRegister()
     </script>
 
       

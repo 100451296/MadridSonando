@@ -4,6 +4,26 @@ controller.register = (req, res) => {
     res.render('usuarios');
 };
 
+controller.sound = (req, res) => {
+    res.render('sonido');
+};
+controller.audiovisual = (req, res) => {
+    res.render('audiovisual');
+};
+
+controller.marketing = (req, res) => {
+    res.render('marketing');
+};
+
+controller.fashion = (req, res) => {
+    res.render('moda');
+};
+
+controller.sound = (req, res) => {
+    res.render('sonido');
+};
+
+
 controller.save = (req, res) => {
     req.getConnection((err, conn) => {
         if (err) {
@@ -17,7 +37,9 @@ controller.save = (req, res) => {
                 return;
             }
             console.log(rows);
-            res.send("OK!");
+            // Redireccionar a la raíz '/'
+            res.redirect('/');
+
         });
         
     });
