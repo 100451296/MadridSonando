@@ -1,0 +1,49 @@
+<%- include('partials/_header') %>
+
+
+
+<div class="container">
+    <div class="row mt-2">
+
+        
+        <div class="bs-component mt-5">
+            <form action="/add", method="post">
+              <fieldset>
+                <legend>Registro</legend>
+
+                <div class="form-group">
+                    <label for="nombre" class="form-label mt-4">Nombre Completo</label>
+                    <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Introduce tu nombre" data-cip-id="exampleInputEmail1">
+                  </div>
+              
+                  <div class="form-group">
+                    <label for="email" class="form-label mt-4">Email</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Introduce tu correo electrónico" data-cip-id="exampleInputEmail1">
+                  </div>
+              
+                  <div class="form-group">
+                    <label for="direccion" class="form-label mt-4">Direccion de Domicilio</label>
+                    <input type="text" name="direccion" class="form-control" id="direccion" placeholder="Introduce tu dirección" data-cip-id="exampleInputEmail1">
+                  </div>
+              
+                  <div class="form-group mt-4">
+                    <label for="contraseña" class="form-label mt-4">Contraseña</label>
+                    <input type="password" name="contraseña" class="form-control" id="contraseña" placeholder="Introduce tu contraseña" data-cip-id="exampleInputEmail1">
+                  </div>
+              
+                  <div class="form-group">
+                    <label for="contraseña2" class="form-label mt-4">Confirma contraseña</label>
+                    <input type="password" name="contraseña2" class="form-control" id="contraseña2" placeholder="Repite la contraseña" data-cip-id="exampleInputEmail1">
+                  </div>
+              </fieldset>
+              <button type="sumbit" class="btn btn-primary mt-5">Registrate!</button>
+            </form>
+        </div>
+                
+        
+    </div>
+</div>
+
+
+
+<%- include('partials/_footer') %>

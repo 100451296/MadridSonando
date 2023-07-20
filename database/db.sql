@@ -4,13 +4,15 @@ CREATE DATABASE MadridSonando;
 -- Using database
 use MadridSonando;
 
--- Create tables
+-- Borra la tabla si ya existe
+DROP TABLE IF EXISTS usuarios;
+
 CREATE TABLE usuarios (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
-    direccion VARCHAR(50),
-    perfil VARCHAR(30),
-    telefono VARCHAR(15)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    email VARCHAR(20) NOT NULL,
+    direccion VARCHAR(255) NOT NULL,
+    contraseña VARCHAR(100) NOT NULL
 );
 
 

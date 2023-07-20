@@ -1,0 +1,32 @@
+<%- include('partials/_header') %>
+
+<div class="container">
+    <div class="row mt-2">
+
+        
+        <div class="bs-component mt-5">
+            <form action="/add", method="post">
+              <fieldset>
+                <legend>Incia sesión</legend>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="form-label mt-4">Email</label>
+                    <input type="text" name="nombre" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce tu Nombre" data-cip-id="exampleInputEmail1">
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="form-label mt-4">Contraseña</label>
+                    <input type="text" name="telefono" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce tu Telefono" data-cip-id="exampleInputEmail1">
+                    
+                </div>
+
+              </fieldset>
+              <button type="sumbit" class="btn btn-primary mt-5">Incia Sesión</button>
+            </form>
+        </div>
+                
+        
+    </div>
+
+<%- include('partials/_footer') %>
