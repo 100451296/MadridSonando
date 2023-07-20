@@ -8,8 +8,8 @@ controller.register = (req, res) => {
     res.render('registrate');
 };
 controller.manageRegister = passport.authenticate('local.signup', {
-    successRedirect: './perfil',
-    failureRedirect: '/registrate'
+    successRedirect: '/perfil',
+    failureRedirect: '/registrarse'
 });
 
 controller.profile = (req, res) => {
