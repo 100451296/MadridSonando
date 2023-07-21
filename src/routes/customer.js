@@ -10,8 +10,10 @@ router.get('/marketing', controller.marketing);
 router.get('/moda', controller.fashion);
 router.get('/inicia-sesion', controller.login);
 router.get('/perfil', controller.profile);
+router.get('/logout', controller.logout);
 
 router.post('/add', controller.manageRegister);
+router.post('/login', controller.manageLogin);
 
 
 module.exports = router;

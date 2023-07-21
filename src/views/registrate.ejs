@@ -2,14 +2,22 @@
 
 
 
-<div class="container">
-    <div class="row mt-2">
+<div class="container mt-5">
+    <div class="row pt-4">
 
         
-        <div class="bs-component mt-5">
+        <div class="bs-component pt-5 pb-4">
             <form action="/add", method="post">
               <fieldset>
                 <legend>Registro</legend>
+                <!-- Mostrar mensajes de error -->
+                <% if (messages.error && messages.error.length > 0) { %>
+                    <div class="alert alert-danger">
+                    <% for (let error of messages.error) { %>
+                        <p><%= error %></p>
+                    <% } %>
+                    </div>
+                <% } %>
 
                 <div class="form-group">
                     <label for="nombre" class="form-label mt-4">Nombre Completo</label>

@@ -6,6 +6,7 @@ const myConnection = require('express-myconnection');
 const passport = require('passport');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
+const flash = require('connect-flash');
 const  database = require('./keys');
 
 const app = express();
@@ -54,12 +55,21 @@ app.use(myConnection(mysql, database, 'single'));
 app.use(express.urlencoded({extended: false})) // Añade el campo body a las req
 app.use(session({
     secret: 'eledunavataadfsadfasdfasdfsdf',
-    resave: false,
-    saveUninitialized: false,
+    resave: true,
+    saveUninitialized: true,
     store: sessionStore
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+
+// Global variables
+app.use((req, res, next) => {
+    res.locals.messages = req.flash();
+    res.locals.user = req.user; // Establecer la variable "user" en la respuesta local
+    next();
+});
+
 
 // Routes
 app.use('/', customerRoutes);
@@ -70,6 +80,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.listen(3000, () => {
     console.log('Server on port 3000')
 });
-
 
 
