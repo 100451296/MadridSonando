@@ -52,19 +52,18 @@ passport.serializeUser( (user, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
+    console.log("Serializacion");
     try {
       const [rows, fields] = await database.query('SELECT * FROM usuarios WHERE id = ?', [id]);
-      console.log("Hago la consulta");
+      
       if (rows.length === 0) {
-        console.log("Usuario no encontrado");
         return done(null, false); // El usuario no fue encontrado
       }
   
       const user = rows[0];
-      console.log("Usuario encontrado:", user);
+
       return done(null, user);
     } catch (err) {
-        console.log("Error", err);
       return done(err);
     }
   });

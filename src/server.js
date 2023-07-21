@@ -50,13 +50,7 @@ const sessionStore = new MySQLStore({
 
 // Middlewares
 app.use(morgan('dev'));
-app.use(myConnection(mysql, {
-    host: 'localhost',
-    user: 'root',
-    password: 'contraseña',
-    port: 3306,
-    database: 'MadridSonando'
-}, 'single'));
+app.use(myConnection(mysql, database, 'single'));
 app.use(express.urlencoded({extended: false})) // Añade el campo body a las req
 app.use(session({
     secret: 'eledunavataadfsadfasdfasdfsdf',
