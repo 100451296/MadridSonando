@@ -25,9 +25,10 @@
                             <label for="exampleInputPassword1" class="form-label mt-4">Contraseña</label>
                             <input type="password" name="contraseña" class="form-control" id="exampleInputPassword1" placeholder="Introduce tu Contraseña" data-cip-id="exampleInputPassword1">
                         </div>
-
+                        
                     </fieldset>
                     <button type="submit" class="btn btn-primary mt-5">Iniciar Sesión</button>
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 </form>
             </div>
         </div>

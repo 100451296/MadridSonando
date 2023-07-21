@@ -1,13 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/customerController');
-const middlewares = require('../controllers/middlewares')
+const middlewares = require('../controllers/middlewares');
+const csrf = require('csurf');
+const bodyParser = require('body-parser');
+
+const csrfProtection = csrf({ cookie: true });
+const parseForm = bodyParser.urlencoded({ extended: false });
 
 router.get('/', controller.home);
 
 // SIGNUP & LOGIN
-router.get('/registrarse', middlewares.preventAccessIfAuthenticated('/perfil'), controller.register);
-router.get('/inicia-sesion', middlewares.preventAccessIfAuthenticated('/perfil'),controller.login);
+router.get('/registrarse', middlewares.preventAccessIfAuthenticated('/perfil'), csrfProtection, controller.register);
+router.get('/inicia-sesion', middlewares.preventAccessIfAuthenticated('/perfil'), csrfProtection, controller.login);
 
 router.get('/sonido', controller.sound);
 router.get('/audiovisual', controller.audiovisual);
@@ -18,8 +23,8 @@ router.get('/moda', controller.fashion);
 router.get('/perfil', middlewares.requireAuthentication('/inicia-sesion'), controller.profile);
 router.get('/logout', middlewares.requireAuthentication('/inicia-sesion'),controller.logout);
 
-router.post('/add', controller.manageRegister);
-router.post('/login', controller.manageLogin);
+router.post('/add', parseForm, csrfProtection, controller.manageRegister);
+router.post('/login', parseForm, csrfProtection, controller.manageLogin);
 
 
 module.exports = router;

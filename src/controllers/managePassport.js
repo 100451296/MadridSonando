@@ -15,7 +15,6 @@ passport.use('local.signup', new LocalStrategy({
     const { nombre, direccion, contraseña, contraseña2 } = req.body;
   
     try {
-        
         // Comprobar si los campos requeridos están vacíos
         if (!email || !nombre || !direccion || !contraseña || !contraseña2) {
             req.flash('error', 'Por favor, complete todos los campos.');
@@ -99,6 +98,7 @@ passport.use('local.login', new LocalStrategy({
   passReqToCallback: true
 }, async (req, email, password, done) => {
   try {
+
     // Comprobar si los campos requeridos están vacíos
     if (!email || !password) {
       req.flash('error', 'Por favor, complete todos los campos.');

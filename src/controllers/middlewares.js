@@ -1,4 +1,20 @@
+const csurf = require('csurf');
+
 const middlewares = {};
+
+// Función middleware para verificar el token CSRF
+middlewares.checkCSRF = (req, res, next) => {
+  // Verificar el token CSRF antes de continuar
+  if (req.method === 'POST' || req.method === 'PUT' || req.method === 'DELETE') {
+    // Comprobar el token CSRF solo para solicitudes POST, PUT y DELETE
+    if (req.body._csrf !== req.csrfToken()) {
+      // El token CSRF no coincide, la solicitud es potencialmente un ataque CSRF
+      return res.status(403).send('Solicitud no válida.');
+    }
+  }
+  // El token CSRF es válido o la solicitud no es POST, PUT o DELETE, continuar
+  next();
+}
 
 // Definir un middleware personalizado para evitar acceso a las secciones de inicio/registro si el usuario está autenticado
 middlewares.preventAccessIfAuthenticated = (redirectTo) => (req, res, next) => {

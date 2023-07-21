@@ -6,8 +6,11 @@ const myConnection = require('express-myconnection');
 const passport = require('passport');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
+const cookieParser = require('cookie-parser');
+const csrf = require('csurf');
 const flash = require('connect-flash');
 const  database = require('./keys');
+
 
 const app = express();
 
@@ -61,7 +64,10 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cookieParser());
+app.use(csrf({ cookie: true }));
 app.use(flash());
+
 
 // Global variables
 app.use((req, res, next) => {

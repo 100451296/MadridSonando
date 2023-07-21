@@ -5,7 +5,7 @@ const passport = require('passport');
 
 // REGISTER 
 controller.register = (req, res) => {
-    res.render('registrate');
+    res.render('registrate', { csrfToken: req.csrfToken() });
 };
 controller.manageRegister = passport.authenticate('local.signup', {
     successRedirect: '/perfil',
@@ -14,7 +14,7 @@ controller.manageRegister = passport.authenticate('local.signup', {
 
 // LOGIN
 controller.login = (req, res) => {
-    res.render('inicia-sesion');
+    res.render('inicia-sesion', { csrfToken: req.csrfToken() });
 };
 controller.manageLogin = passport.authenticate('local.login', {
     successRedirect: '/perfil',
