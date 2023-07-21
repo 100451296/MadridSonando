@@ -43,7 +43,7 @@
               
             </ul>
             <% if (user) { %> <!-- Usamos la variable "user" que está disponible en todas las vistas -->
-              <a class="btn btn-primary my-2 my-sm-0" href="/perfil">Perfil</a>
+              <a class="btn btn-primary my-2 my-sm-0" href="/perfil"><%= user.nombre %></a>
               <a class="btn btn-primary my-2 my-sm-0" href="/logout">Cerrar sesion</a>
             <% } else { %>
               <a class="btn btn-primary my-2 my-sm-0" href="/inicia-sesion">Iniciar sesión</a>
