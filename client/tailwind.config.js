@@ -10,6 +10,10 @@ export default {
         'lg': '1100px',
         'sm': '640px',
       },
+      gradientColorStops: {
+        'violet': '#7F00FF',
+        'pink': '#FF007F',
+      },
       spacing: {
         '50': '5rem',
       },

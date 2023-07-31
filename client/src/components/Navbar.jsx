@@ -13,8 +13,8 @@ function Navbar() {
   let [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full shadow-lg shadow-gray-800/40 fixed top-0 left-0">
-      <div className="lg:flex items-center justify-between bg-black py-4 lg:px-9 px-8">
+    <div className="w-full shadow-lg shadow-gray-900/40 fixed top-0 left-0">
+      <div className="lg:flex items-center justify-between bg-gray-800 py-6 lg:px-9 px-8">
         <div className="font-bold text-2xl cursor-pointer flex items-center">
           <span className="text-3xl text-indigo-50 mr-3 pt-1">
             <ion-icon name="play-circle-outline"></ion-icon>
@@ -30,7 +30,7 @@ function Navbar() {
         </div>
 
         <div
-          className={`lg:flex  lg:space-x-50 lg:static absolute bg-black lg:z-auto z-[-1] left-0 
+          className={`lg:flex  lg:space-x-50 lg:static absolute bg-gray-800 lg:z-auto z-[-1] left-0 
         w-full lg:w-auto lg:pl-0 pl-9 lg:pb-0 pb-6 transition-all ease-in ${
           open ? "top-19 opacity-100" : "top-[-490px] "
         }  lg:opacity-100 opacity-0`}
@@ -49,8 +49,8 @@ function Navbar() {
           </ul>
 
           <div className="flex items-center space-x-3">
-            <Button>Inicia Sesion</Button>
-            <BorderButton>Registrate</BorderButton>
+            <Button link='/login'>Inicia Sesion</Button>
+            <BorderButton link='/register'>Registrate</BorderButton>
           </div>
         </div>
       </div>
