@@ -5,5 +5,35 @@
 body {
     background: white;
     color: white;
-    margin-top: 5%;
 }
+
+@keyframes bounce-slow {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-bounce-slow {
+    animation-name: bounce-slow;
+    animation-duration: 2s; /* Ajusta el valor para controlar la velocidad */
+  }
+  
+  .animate-spin {
+    animation: spin 2s linear infinite; /* Ajusta el valor de duration según lo deseado */
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

@@ -11,13 +11,11 @@ export const registerRequest = async (userData) => {
       credentials: "include",
     });
 
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
+    if (response.status === 401) return "401"; 
+    
     const responseData = await response.json();
 
-    return responseData; // Devolver los datos obtenidos de la respuesta
+    return responseData; // Devolver los datos obtenidos
   } catch (error) {
     // Aquí puedes manejar errores de red o problemas de solicitud
     console.error("Fetch error:", error);
@@ -49,25 +47,45 @@ export const loginRequest = async (userData) => {
   }
 };
 
-export const authenticateRequest = async () => {
+const getDataFromServer = () => {
   const url = "http://localhost:4001/api/auth/authenticated";
 
-  try {
-    const response = await fetch(url, {
+  return new Promise((resolve, reject) => {
+    fetch(url, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
       credentials: "include",
-    });
-    if (response.status === 401) return "401"; 
-    const responseData = await response.json();
+    })
+      .then(response => {
+        if (response.status === 401) {
+          resolve("401"); // Resolvemos la promesa con "401" para tratar el error en la función que llame a getDataFromServer
+        } else {
+          return response.json();
+        }
+      })
+      .then(responseData => {
+        console.log("req", responseData)
+        resolve(responseData); // Resolvemos la promesa con los datos obtenidos
+      })
+      .catch(error => {
+        console.error("Fetch error", error);
+        reject(error); // Rechazamos la promesa con el error
+      });
+  });
+};
 
-    return responseData; // Devolver los datos obtenidos
-  } catch (error) {
-    console.error("Fetch error", error);
-    throw error;
-  }
+export const authenticateRequest = () => {
+  return new Promise((resolve, reject) => {
+    getDataFromServer()
+      .then(responseData => {
+        resolve(responseData); // Resolvemos la promesa con los datos obtenidos
+      })
+      .catch(error => {
+        reject(error); // Rechazamos la promesa con el error
+      });
+  });
 };
 
 

@@ -7,8 +7,9 @@ export default {
   theme: {
     extend: {
       screens: {
-        'lg': '1100px',
-        'sm': '640px',
+        'lg': '1105px',
+        'sm': '400px',
+        'xs': '200px'
       },
       gradientColorStops: {
         'violet': '#7F00FF',

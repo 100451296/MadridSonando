@@ -58,7 +58,6 @@ export const AuthProvider = ({ children }) => {
     async function getAuth() {
       try {
         const user = await authenticateRequest();
-        console.log(user);
         if (user === "401"){
             setIsAuthenticated(false);
             setUser(null);

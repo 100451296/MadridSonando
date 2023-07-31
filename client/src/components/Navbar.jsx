@@ -1,7 +1,7 @@
-import AuthButton from "./AuthButton";
 import BorderButton from "./BorderButton";
 import Button from "./Button";
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
   let services = [
@@ -11,16 +11,22 @@ function Navbar() {
     { name: "Moda", link: "/moda" },
   ];
   let [open, setOpen] = useState(false);
+  let { user } = useAuth();
 
   return (
-    <div className="w-full shadow-lg shadow-gray-900/40 fixed top-0 left-0">
+    <div id="navbar" className="w-full shadow-lg shadow-gray-900/40 sticky top-0 left-0 z-50">
       <div className="lg:flex items-center justify-between bg-gray-800 py-6 lg:px-9 px-8">
-        <div className="font-bold text-2xl cursor-pointer flex items-center">
-          <span className="text-3xl text-indigo-50 mr-3 pt-1">
-            <ion-icon name="play-circle-outline"></ion-icon>
-          </span>
-          Madrid Sonando
-        </div>
+        <a
+          href="/
+        "
+        >
+          <div className="font-bold text-2xl cursor-pointer flex items-center">
+            <span className="text-4xl text-indigo-50 mr-3 pt-1">
+              <ion-icon name="play-circle-outline"></ion-icon>
+            </span>
+            Madrid Sonando
+          </div>
+        </a>
 
         <div
           onClick={() => setOpen(!open)}
@@ -47,10 +53,19 @@ function Navbar() {
               </li>
             ))}
           </ul>
-
           <div className="flex items-center space-x-3">
-            <Button link='/login'>Inicia Sesion</Button>
-            <BorderButton link='/register'>Registrate</BorderButton>
+            {user ? (
+              // Si el usuario existe, muestra el botón de perfil
+              <Button link="/profile" profile="true">
+                {user.nombre}
+              </Button>
+            ) : (
+              // Si el usuario no existe, muestra los botones de inicio de sesión y registro
+              <>
+                <Button link="/login">Inicia Sesion</Button>
+                <BorderButton link="/register">Registrate</BorderButton>
+              </>
+            )}
           </div>
         </div>
       </div>

@@ -51,9 +51,10 @@ export const logout = (req, res) => {
 
 export const getAuthenticated = (req, res) => {
   try {
-    const { email, nombre, direccion }  = req.user.email;
+    const { email, nombre, direccion }  = req.user;
+
     if (req.isAuthenticated()) {
-      res.status(200).json({ email, nombre, direccion });
+      res.status(200).json({ email: email, nombre:nombre, direccion:direccion });
     } else {
       res.status(401).json({ error: "No Authenticated" });
     }
