@@ -1,6 +1,7 @@
 import { getPage } from "../api/products";
 import { useState, useEffect } from "react";
 import Product from "../components/Product";
+import { Cart } from "../components/Cart";
 
 export function Moda() {
   const [items, setItems] = useState([]);
@@ -46,8 +47,9 @@ export function Moda() {
 
   return (
     <div className="flex flex-col xs:p-10 sm:p-12 lg:px-20 lg:py-17 justify-center items-center min-h-screen w-full text-black bg-gray-100 ">
-      <div className="w-full p-4 bg-cyan-950 mb-10 rounded-2xl text-white text-center">
+      <div className="relative w-full p-4 bg-cyan-950 mb-10 rounded-2xl text-white text-center">
         <strong className="text-5xl">Filtros</strong>
+        <Cart></Cart>
       </div>
 
       <ul className="w-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-4">

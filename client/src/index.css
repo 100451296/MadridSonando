@@ -56,3 +56,9 @@ body {
     background-clip: border-box;
 
     }
+
+
+    .cart-button input:checked ~ .cart {
+      height: 100%;
+      display: flex;
+    }
