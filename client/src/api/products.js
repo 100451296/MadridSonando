@@ -1,7 +1,8 @@
 const baseUrl = "http://192.168.1.37:4001/api/products/";
 
-export const getPageRequest = async () =>{
-    const url = baseUrl + "?page=1";
+export const getPageRequest = async (page) =>{
+    const url = baseUrl + "?page=" + page;
+    console.log("Obteniedno pagina", url)
     try {
         console.log("inciando")
         const response = await fetch(url,{method: "GET"});
@@ -10,21 +11,21 @@ export const getPageRequest = async () =>{
 
         return await response.json()
     } catch (error) {
-        console.error(error);
+        //console.error(error);
         throw Error("Error al obtener productos");
     }   
     
 };
 
 
-export const getPage = async () => {
+export const getPage = async (page) => {
     
     try {
-        const response = await getPageRequest();
+        const response = await getPageRequest(page);
         return response;
 
     } catch (error) {
-        console.error(error);
+        //console.error(error);
         throw Error("Error al obtener productos")
     }
     
