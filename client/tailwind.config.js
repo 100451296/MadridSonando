@@ -9,7 +9,7 @@ export default {
       screens: {
         'lg': '1300px',
         'sm': '400px',
-        'md': '900px',
+        'md': '768px',
         'xs': '200px'
       },
       gradientColorStops: {

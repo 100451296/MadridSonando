@@ -47,7 +47,7 @@ app.use(passport.session());
 
 
 app.use(cors({
-  origin: 'http://localhost:4001', // O bien, puedes reemplazar '*' con el origen específico, como 'http://tu-dominio-externo.com'
+  origin: ['http://localhost:5173', 'http://localhost:4001'], // O bien, puedes reemplazar '*' con el origen específico, como 'http://tu-dominio-externo.com'
   credentials: true
 }));
 

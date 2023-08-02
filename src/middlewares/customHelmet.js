@@ -2,10 +2,10 @@ import helmet from "helmet";
 
 const cspDirectives = {
   defaultSrc: ["'self'"],
-  scriptSrc: ["'self'"],
-  styleSrc: ["'self'", "fonts.googleapis.com"],
-  imgSrc: ["'self'", "data:"],
-  fontSrc: ["'self'", "fonts.gstatic.com"],
+  scriptSrc: ["'self'", "unsafe-unline"],
+  styleSrc: ["'self'", "fonts.googleapis.com", "unsafe-unline"],
+  imgSrc: ["'self'", "unsafe-unline"],
+  fontSrc: ["'self'", "fonts.gstatic.com", "unsafe-unline"],
   connectSrc: ["'self'"],
   frameSrc: ["'none'"], // Agregar esta directiva para bloquear el uso de iframes externos
   formAction: ["'self'"], // Agregar esta directiva para permitir solo envíos de formularios al mismo sitio
