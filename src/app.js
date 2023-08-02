@@ -41,16 +41,39 @@ app.use(cookieParser());
 app.use(session(config.sesionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(helmetSecurity);
+
+
+//app.use(helmetSecurity);
+
 
 app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: true, // Permite enviar cookies
+  origin: 'http://localhost:4001', // O bien, puedes reemplazar '*' con el origen específico, como 'http://tu-dominio-externo.com'
+  credentials: true
 }));
+
+
+
+
+app.use(express.static(join(dirname(currentFilePath), 'static', 'dist')));
 
 
 // ROUTES
 app.use("/api", mainRouter)
+// Handle requests that don't match any route and serve the main HTML file
+app.get('*', (req, res) => {
+  try {
+    console.log("Peticion GET, redirecciono a React")
+    const url = join(dirname(currentFilePath),'static', 'dist', 'index.html');
+    console.log(url);
+    res.sendFile(url);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({message: 'Internal Server Error'});
+  }
+  
+});
+
+
 
 // Crear el servidor HTTPS
 //const httpsServer = https.createServer(credentials, app);

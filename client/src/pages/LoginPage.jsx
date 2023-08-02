@@ -16,7 +16,9 @@ function LoginPage() {
       <div className="bg-gray-900 shadow-2xl shadow-gray-500/50 rounded-2xl">
         <div className="flex justify-between">
           
-          <AuthDecoration/>
+          <AuthDecoration>
+            <ion-icon name="log-in-outline"></ion-icon>
+          </AuthDecoration>
 
           <form
             className="text-black bg-gray-100 p-8 rounded-xl w-auto shadow-2xl shadow-gray-500/50"
@@ -32,7 +34,7 @@ function LoginPage() {
             <input
               type="email"
               {...register("email", { required: true })}
-              className="w-full  text-white px-4 py-4 rounded-full lg:rounded-md my-2 mb-5"
+              className="w-full px-4 py-4 rounded-full lg:rounded-md my-2 mb-5"
               placeholder="Email"
             />
 

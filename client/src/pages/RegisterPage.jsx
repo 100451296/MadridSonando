@@ -14,7 +14,9 @@ function RegisterPage() {
     <section className="flex min-h-screen justify-center items-center bg-gray-200 px-2 lg:px-32 lg:py-0 ">
       <div className="bg-gray-900 shadow-2xl shadow-gray-500/50 rounded-2xl">
         <div className="flex justify-between">
-          <AuthDecoration/>
+          <AuthDecoration>
+            <ion-icon name="play-circle-outline"></ion-icon>
+          </AuthDecoration>
 
           <form
             className="text-black bg-gray-100 py-10 px-5 lg:py-10 lg:px-14 rounded-xl w-full lg:w-2/3 shadow-2xl shadow-gray-500/50"

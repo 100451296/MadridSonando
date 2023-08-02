@@ -1,5 +1,7 @@
+const baseUrl = "http://192.168.1.37:4001/api"
+
 export const registerRequest = async (userData) => {
-  const url = "http://localhost:4001/api/auth/register";
+  const url =  baseUrl + "/auth/register";
 
   try {
     const response = await fetch(url, {
@@ -24,7 +26,7 @@ export const registerRequest = async (userData) => {
 };
 
 export const loginRequest = async (userData) => {
-  const url = "http://localhost:4001/api/auth/login";
+  const url =  baseUrl + "/auth/login";
 
   try {
     const response = await fetch(url, {
@@ -48,7 +50,7 @@ export const loginRequest = async (userData) => {
 };
 
 const getDataFromServer = () => {
-  const url = "http://localhost:4001/api/auth/authenticated";
+  const url =  baseUrl + "/auth/authenticated";
 
   return new Promise((resolve, reject) => {
     fetch(url, {
@@ -66,7 +68,6 @@ const getDataFromServer = () => {
         }
       })
       .then(responseData => {
-        console.log("req", responseData)
         resolve(responseData); // Resolvemos la promesa con los datos obtenidos
       })
       .catch(error => {

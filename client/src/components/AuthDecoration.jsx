@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useEffect } from 'react';
 
-export default function AuthDecoration() {
+export default function AuthDecoration({ children }) {
   // Función para alternar la clase 'animate-bounce-slow'
   function toggleBounceClass() {
     const element = document.getElementById('interactive-element');
@@ -31,7 +32,7 @@ export default function AuthDecoration() {
         className="w-60 h-60 bg-cyan-500 shadow-lg shadow-cyan-500/50 rounded-full flex items-center justify-center 
       text-9xl relative hover:animate-spin"
       >
-        <ion-icon name="play-circle-outline"></ion-icon>
+        {children}
       </div>
     </div>
   );

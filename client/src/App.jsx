@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
@@ -8,31 +7,9 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import NotAuthRoute from "./components/NotAuthRoute.jsx";
+import { Moda } from "./pages/Moda.jsx";
 
 function App() {
-  const [navbarHeight, setNavbarHeight] = useState(0);
-
-  useEffect(() => {
-    // Función para obtener la altura del navbar y actualizar el estado
-    const handleNavbarHeight = () => {
-      const navbarElement = document.getElementById("navbar");
-      if (navbarElement) {
-        setNavbarHeight(navbarElement.clientHeight);
-      }
-    };
-
-    // Ejecutar la función para obtener la altura del navbar
-    handleNavbarHeight();
-
-    // Agregar un listener para actualizar la altura cuando la ventana cambie de tamaño
-    window.addEventListener("resize", handleNavbarHeight);
-
-    // Limpiar el listener al desmontar el componente
-    return () => {
-      window.removeEventListener("resize", handleNavbarHeight);
-    };
-  }, []);
-
   return (
     <AuthProvider>
       <BrowserRouter>
@@ -48,7 +25,6 @@ function App() {
             id="main-content"
             style={{
               position: "relative",
-              minHeight: `calc(100vh - ${navbarHeight}px)`,
               padding: "0",
               margin: "0",
               overflow: "hidden",
@@ -56,6 +32,7 @@ function App() {
           >
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/moda" element={<Moda/>} />
               <Route element={<ProtectedRoute />}>
                 <Route path="/profile" element={<ProfilePage />} />
               </Route>

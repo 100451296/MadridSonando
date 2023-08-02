@@ -54,7 +54,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
   useEffect(() => {
-    console.log("efect");
     async function getAuth() {
       try {
         const user = await authenticateRequest();

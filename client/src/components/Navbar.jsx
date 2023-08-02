@@ -2,6 +2,7 @@ import BorderButton from "./BorderButton";
 import Button from "./Button";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   let services = [
@@ -14,7 +15,10 @@ function Navbar() {
   let { user } = useAuth();
 
   return (
-    <div id="navbar" className="w-full shadow-lg shadow-gray-900/40 sticky top-0 left-0 z-50">
+    <div
+      id="navbar"
+      className="w-full shadow-lg shadow-gray-900/40 sticky top-0 left-0 z-50"
+    >
       <div className="lg:flex items-center justify-between bg-gray-800 py-6 lg:px-9 px-8">
         <a
           href="/
@@ -44,12 +48,12 @@ function Navbar() {
           <ul className="lg:flex lg:items-center">
             {services.map((service) => (
               <li key={service.name} className="lg:ml-8 text-xl lg:my-0 my-5">
-                <a
-                  href={service.link}
+                <Link
+                  to={service.link}
                   className="text-gray-400 hover:text-gray-50"
                 >
                   {service.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

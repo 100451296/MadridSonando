@@ -7,8 +7,9 @@ export default {
   theme: {
     extend: {
       screens: {
-        'lg': '1105px',
+        'lg': '1300px',
         'sm': '400px',
+        'md': '900px',
         'xs': '200px'
       },
       gradientColorStops: {
