@@ -21,7 +21,7 @@ export function Moda() {
       setItems((prevItems) => [...prevItems, ...data]);
       setPage((prevPage) => prevPage + 1);
     } catch (err) {
-      console.error(err);
+      //console.error(err);
       setError(err);
     } finally {
       setIsLoading(false);

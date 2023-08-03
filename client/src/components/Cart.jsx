@@ -1,10 +1,16 @@
 import { useId } from "react";
+import { CartProduct } from "./CartProduct";
+import {useCart} from "../hooks/useCart.js"
 
 export function Cart() {
   const cartCheckboxId = useId();
+  const {cart, clearCart} = useCart();
 
+  const handleClear = () => {
+    clearCart();
+  }
   return (
-    <div className="absolute top-0 z-50 cart-button flex flex-col justify-center items-center bg-white mb-10 p-2 rounded-2xl">
+    <div className="absolute top-0 z-40 cart-button flex flex-col justify-center items-center bg-white mb-10 p-2 rounded-2xl">
       <label className="" htmlFor={cartCheckboxId}>
         <div className="flex justify-center items-center bg-cyan-950 text-white rounded-full text-4xl p-4">
           <ion-icon name="cart-outline"></ion-icon>
@@ -12,100 +18,17 @@ export function Cart() {
       </label>
       <input id={cartCheckboxId} type="checkbox" hidden />
 
-      <aside className="cart hidden flex-col justify-center items-center mt-4 overflow-y-auto max-h-96 w-80">
-        <ul className="mb-4">
-          <li className="flex flex-col justify-center items-center bg-cyan-100 p-4">
-            <img
-              src="https://www.bigbasket.com/media/uploads/p/l/40075537_5-fresho-onion.jpg"
-              alt="ProductoImg"
-            />
+      <aside className="cart hidden flex-col justify-center items-center mt-4 w-80">
+        <div className="overflow-y-auto">
+          <ul className="flex flex-col text-black">
+            {cart.map(product => (
+                <CartProduct key={product.id} id={product.id} name={product.name} image={product.image} quantity={product.quantity} price={product.price}/>
+            ))}
 
-            <div>
-              <strong>Producto</strong>
-            </div>
-
-            <footer className="flex justify-center items-center space-x-3">
-              <small className="text-sm">Cantidad: 1</small>
-              <button className="flex justify-center items-center px-3 bg-gray-500 text-xl rounded-xl">
-                +
-              </button>
-            </footer>
-          </li>
-
-          <li className="flex flex-col justify-center items-center bg-cyan-100 p-4">
-            <img
-              src="https://www.bigbasket.com/media/uploads/p/l/40075537_5-fresho-onion.jpg"
-              alt="ProductoImg"
-            />
-
-            <div>
-              <strong>Producto</strong>
-            </div>
-
-            <footer className="flex justify-center items-center space-x-3">
-              <small className="text-sm">Cantidad: 1</small>
-              <button className="flex justify-center items-center px-3 bg-gray-500 text-xl rounded-xl">
-                +
-              </button>
-            </footer>
-          </li>
-
-          <li className="flex flex-col justify-center items-center bg-cyan-100 p-4">
-            <img
-              src="https://www.bigbasket.com/media/uploads/p/l/40075537_5-fresho-onion.jpg"
-              alt="ProductoImg"
-            />
-
-            <div>
-              <strong>Producto</strong>
-            </div>
-
-            <footer className="flex justify-center items-center space-x-3">
-              <small className="text-sm">Cantidad: 1</small>
-              <button className="flex justify-center items-center px-3 bg-gray-500 text-xl rounded-xl">
-                +
-              </button>
-            </footer>
-          </li>
-
-          <li className="flex flex-col justify-center items-center bg-cyan-100 p-4">
-            <img
-              src="https://www.bigbasket.com/media/uploads/p/l/40075537_5-fresho-onion.jpg"
-              alt="ProductoImg"
-            />
-
-            <div>
-              <strong>Producto</strong>
-            </div>
-
-            <footer className="flex justify-center items-center space-x-3">
-              <small className="text-sm">Cantidad: 1</small>
-              <button className="flex justify-center items-center px-3 bg-gray-500 text-xl rounded-xl">
-                +
-              </button>
-            </footer>
-          </li>
-
-          <li className="flex flex-col justify-center items-center bg-cyan-100 p-4">
-            <img
-              src="https://www.bigbasket.com/media/uploads/p/l/40075537_5-fresho-onion.jpg"
-              alt="ProductoImg"
-            />
-
-            <div>
-              <strong>Producto</strong>
-            </div>
-
-            <footer className="flex justify-center items-center space-x-3">
-              <small className="text-sm">Cantidad: 1</small>
-              <button className="flex justify-center items-center px-3 bg-gray-500 text-xl rounded-xl">
-                +
-              </button>
-            </footer>
-          </li>
-        </ul>
+          </ul>
+        </div>
         <button>
-          <div className="flex justify-center items-center bg-cyan-950 text-white rounded-full text-4xl p-4">
+          <div onClick={handleClear}className="flex justify-center items-center bg-cyan-950 text-white rounded-full text-4xl p-4">
             <ion-icon name="close-circle-outline"></ion-icon>
           </div>
         </button>
@@ -113,4 +36,3 @@ export function Cart() {
     </div>
   );
 }
-

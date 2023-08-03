@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import NotAuthRoute from "./components/NotAuthRoute.jsx";
 import { Moda } from "./pages/Moda.jsx";
+import { CartProvider } from "./context/CartContext.jsx";
 
 function App() {
   return (
@@ -32,7 +33,15 @@ function App() {
           >
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/moda" element={<Moda/>} />
+
+              <Route
+                path="/moda"
+                element={
+                  <CartProvider>
+                    <Moda />
+                  </CartProvider>
+                }
+              />
               <Route element={<ProtectedRoute />}>
                 <Route path="/profile" element={<ProfilePage />} />
               </Route>
