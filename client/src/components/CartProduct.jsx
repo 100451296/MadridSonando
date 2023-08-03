@@ -38,14 +38,14 @@ export function CartProduct({id, name, quantity, image, price}) {
                 className="h-full w-full object-cover object-center lg:h-full lg:w-full"
               />
             </div>
-              <div>
-                <strong>{name}</strong>
-                <strong>{price}</strong>
+              <div className="flex flex-col justify-between w-1/2">
+                <strong className="text-lg">{name}</strong>
+                <strong className="text-lg">{price + "$"}</strong>
               </div>
 
               <footer className="flex justify-center items-center space-x-3">
-                <small className="text-sm">Cantidad: {quantity}</small>
-                <button onClick={handleIncrementQuantity} className="flex justify-center items-center px-3 bg-gray-500 text-xl rounded-xl">
+                <small className="text-lg">Cantidad: {quantity}</small>
+                <button onClick={handleIncrementQuantity} className="flex justify-center items-center px-3 bg-green-500 text-xl rounded-xl">
                   +
                 </button>
                 <button onClick={handleDecreaseQuantity} className="flex justify-center items-center px-3 bg-red-500 text-xl rounded-xl">
