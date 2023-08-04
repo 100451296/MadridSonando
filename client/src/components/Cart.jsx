@@ -29,7 +29,7 @@ export function Cart() {
   }, [cart]);
 
   return (
-    <div className="absolute top-0 z-40 right-0 cart-button flex flex-col justify-center items-center bg-cyan-800 mb-10 p-2 rounded-2xl">
+    <div className="cart-div absolute top-0 right-0 z-40 cart-button flex flex-col justify-center items-center bg-cyan-800 mb-10 p-2 rounded-2xl">
       <label className="" htmlFor={cartCheckboxId}>
         <div className="flex justify-center items-center bg-cyan-300 text-white rounded-full text-4xl p-4">
           <ion-icon name="cart-outline"></ion-icon>
@@ -37,7 +37,7 @@ export function Cart() {
       </label>
       <input id={cartCheckboxId} type="checkbox" hidden />
 
-      <aside className="cart hidden flex-col justify-center items-center mt-4 w-80 text-white">
+      <aside className="cart hidden flex-col items-center mt-4 w-80 text-white">
         <div className="overflow-y-auto">
           <div>
             {cart.length === 0 ? (
@@ -56,12 +56,11 @@ export function Cart() {
                     price={product.price}
                   />
                 ))}
-                <footer className="text-white text-xl mt-3 font-bold">{"Total "+ totalPrice + "$"}</footer>
               </ul>
             )}
           </div>
         </div>
-
+        <footer className="text-white text-xl mt-3 font-bold">{"Total "+ totalPrice + "$"}</footer>
         <button className="mt-5">
           {cart.length > 0 && (
             <div

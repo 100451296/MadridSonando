@@ -57,8 +57,14 @@ body {
 
     }
 
-
-    .cart-button input:checked ~ .cart {
-      height: 100%;
+    .cart-button input:checked ~ .cart-div {
+      width: 100%;
       display: flex;
     }
+    
+    .cart-button input:checked ~ .cart {
+      display: flex;
+    }
+
+
+  

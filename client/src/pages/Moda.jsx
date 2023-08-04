@@ -47,9 +47,18 @@ export function Moda() {
 
   return (
     <div className="flex flex-col xs:p-10 sm:p-12 lg:px-20 lg:py-17 justify-center items-center min-h-screen w-full text-black bg-gray-100 ">
-      <div className="relative w-full p-4 bg-cyan-950 mb-10 rounded-2xl text-white text-center">
-        <strong className="text-5xl">Filtros</strong>
-        <Cart></Cart>
+       
+      <div className="flex w-full justify-between p-4 mb-10 rounded-2xl text-white text-center">
+        <div className="flex lg:w-full justify-center items-center bg-cyan-950 p-5">
+          <strong className="text-5xl">Filtros </strong>
+        </div>
+        <div className="relative flex justify-center items-center">
+          <Cart></Cart>
+        </div>
+        
+        
+        
+       
       </div>
 
       <ul className="w-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-4">
