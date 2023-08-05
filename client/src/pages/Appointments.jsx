@@ -71,6 +71,12 @@ export function Appointments() {
   const handlePost = async () => {
     
     try {
+      // Verificar si la fecha seleccionada está en notAviableDates
+      if (notAviableDates.some((date) => formatDateToYYYYMMDD(date) === selectedDate)) {
+        console.log("La fecha seleccionada no está disponible.");
+        return;
+      }
+
       const response = await postAppointments(service, selectedDate);
       console.log(response);
       if (response.success === true){
@@ -82,8 +88,6 @@ export function Appointments() {
     } catch (error) {
       console.error(error);      
     }
-    
-
   }
 
   return (
