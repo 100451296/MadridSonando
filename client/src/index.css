@@ -66,5 +66,10 @@ body {
       display: flex;
     }
 
+    /* Estilos para los días marcados */
+.marked-date {
+  background-color: red; /* Cambia el fondo a rojo para los días marcados */
+  border-radius: 50%; /* Opcional: Redondea los bordes para un aspecto más suave */
+}
 
   

@@ -9,6 +9,8 @@ import HomePage from "./pages/HomePage.jsx";
 import NotAuthRoute from "./components/NotAuthRoute.jsx";
 import { Moda } from "./pages/Moda.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
+import { Plans } from "./pages/Plans.jsx";
+import { Appointments } from "./pages/Appointments.jsx";
 
 function App() {
   return (
@@ -42,9 +44,14 @@ function App() {
                   </CartProvider>
                 }
               />
+              <Route path="/plans/:service" element={<Plans/>}/>
+             
+              
               <Route element={<ProtectedRoute />}>
                 <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/appointments/:service" element={<Appointments></Appointments>}></Route>
               </Route>
+              
               <Route element={<NotAuthRoute />}>
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />

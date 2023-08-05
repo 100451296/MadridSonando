@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   let services = [
-    { name: "Sonido", link: "/sonido" },
-    { name: "Audiovisual", link: "/audiovisual" },
-    { name: "Marketing", link: "/marketing" },
-    { name: "Moda", link: "/moda" },
+    { name: "Sonido", link: "/plans/Sonido" },
+    { name: "Audiovisual", link: "/plans/Audiovisual" },
+    { name: "Marketing", link: "/plans/Marketing" },
+    { name: "Moda", link: "/Moda" },
   ];
   let [open, setOpen] = useState(false);
   let { user } = useAuth();
@@ -20,17 +20,14 @@ function Navbar() {
       className="w-full shadow-lg shadow-gray-900/40 sticky top-0 left-0 z-50"
     >
       <div className="lg:flex items-center justify-between bg-gray-800 py-6 lg:px-9 px-8">
-        <a
-          href="/
-        "
-        >
+        <Link to={"/"}>
           <div className="font-bold text-2xl cursor-pointer flex items-center">
             <span className="text-4xl text-indigo-50 mr-3 pt-1">
               <ion-icon name="play-circle-outline"></ion-icon>
             </span>
             Madrid Sonando
           </div>
-        </a>
+        </Link>
 
         <div
           onClick={() => setOpen(!open)}

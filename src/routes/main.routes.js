@@ -13,7 +13,7 @@ mainRouter.use('/plans', plans);
 mainRouter.use('/auth', auth);
 mainRouter.use('/products', shop);
 mainRouter.use('/profile', requireAuthentication, profile);
-mainRouter.use('/citas', requireAuthentication, appointments);
+mainRouter.use('/appointments', requireAuthentication, appointments);
 
 export default mainRouter
 
