@@ -13,7 +13,7 @@ export function Appointments() {
 
   const tileContent = ({ date, view }) => {
     if (view === "month" && isDateMarked(date)) {
-      return "bg-gray-800 text-black"; // Personaliza el fondo de los días marcados
+      return "bg-gray-700 text-black"; // Personaliza el fondo de los días marcados
     }
     return null; // No mostrar contenido personalizado en otras vistas
   };
@@ -92,10 +92,10 @@ export function Appointments() {
 
   return (
     <div className="flex flex-col items-center min-h-screen lg:p-10 bg-cyan-800">
-      <h1>Calendario</h1>
+      <h1 className="text-4xl font-bold mb-10">{"Selecciona tu cita para " + service}</h1>
       <div className="flex items-center justify-center lg:w-3/5 h-96 bg-red-300 rounded-2xl">
         <Calendar
-          className="bg-gray-900 w-full h-full rounded-2xl lg:p-10"
+          className="bg-white w-full h-full text-black text-xl rounded-2xl lg:p-10"
           onChange={onChange}
           onClickDay={onClickDay} // Agregar onClickDay para obtener la fecha seleccionada
           tileClassName={tileContent} // Usar tileContent en lugar de tileClassName
